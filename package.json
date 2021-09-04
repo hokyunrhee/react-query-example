@@ -13,6 +13,7 @@
     "cy:run": "cypress run",
     "cy:open-ct": "cypress open-ct",
     "cy:run-ct": "cypress run-ct",
+    "generate": "prisma generate",
     "gen:theme-typings": "chakra-cli tokens styles/theme",
     "postinstall": "patch-package && yarn run gen:theme-typings"
   },
@@ -20,6 +21,7 @@
     "@chakra-ui/react": "^1.6.5",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@prisma/client": "^2.30.3",
     "axios": "^0.21.1",
     "dayjs": "^1.10.6",
     "framer-motion": "^4",
@@ -51,6 +53,7 @@
     "husky": "^6.0.0",
     "lint-staged": "^11.1.2",
     "prettier": "^2.2.1",
+    "prisma": "2.30.3",
     "typescript": "^4.2.4",
     "webpack": "4",
     "webpack-dev-server": "3"

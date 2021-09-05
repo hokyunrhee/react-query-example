@@ -1,3 +1,4 @@
-// query
+import { Todo } from '@prisma/client';
 
-// mutation
+export type { Todo };
+export type Todos = Todo[];

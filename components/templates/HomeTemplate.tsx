@@ -1,13 +1,11 @@
-import React from 'react';
-
-import { Box } from '@chakra-ui/react';
+import AppLayout from './AppLayout';
 
 interface HomeTemplateProps {
   header: JSX.Element;
 }
 
 const HomeTemplate = ({ header }: HomeTemplateProps) => {
-  return <Box flexGrow={1}>{header}</Box>;
+  return <AppLayout>{header}</AppLayout>;
 };
 
 export default HomeTemplate;

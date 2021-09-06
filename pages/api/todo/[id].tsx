@@ -3,20 +3,24 @@ import prisma from 'lib/prisma';
 import { Todo } from '@prisma/client';
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
-  const todoId = Number(req.query.id);
+  try {
+    const todoId = Number(req.query.id);
 
-  switch (req.method) {
-    case 'GET':
-      handleGET(todoId, res);
-      break;
-    case 'PATCH':
-      handlePATCH(todoId, req, res);
-      break;
-    case 'DELETE':
-      handleDELETE(todoId, res);
-      break;
-    default:
-      res.status(405).json({ message: `${req.method} method is not supported at this route.` });
+    switch (req.method) {
+      case 'GET':
+        handleGET(todoId, res);
+        break;
+      case 'PATCH':
+        handlePATCH(todoId, req, res);
+        break;
+      case 'DELETE':
+        handleDELETE(todoId, res);
+        break;
+      default:
+        res.status(405).json({ message: `${req.method} method is not supported at this route.` });
+    }
+  } catch (error) {
+    res.status(500).json({});
   }
 };
 

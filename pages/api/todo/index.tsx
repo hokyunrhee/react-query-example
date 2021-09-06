@@ -2,15 +2,19 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from 'lib/prisma';
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
-  switch (req.method) {
-    case 'GET':
-      handleGET(req, res);
-      break;
-    case 'POST':
-      handlePOST(req, res);
-      break;
-    default:
-      res.status(405).json({ message: `${req.method} method is not supported at this route.` });
+  try {
+    switch (req.method) {
+      case 'GET':
+        handleGET(req, res);
+        break;
+      case 'POST':
+        handlePOST(req, res);
+        break;
+      default:
+        res.status(405).json({ message: `${req.method} method is not supported at this route.` });
+    }
+  } catch (error) {
+    res.status(500).json({});
   }
 };
 

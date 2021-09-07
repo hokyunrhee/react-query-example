@@ -5,10 +5,8 @@ import debounce from 'lodash.debounce';
 import mutation from 'api/mutation';
 
 export const TodoInputContainer = () => {
-  const createtTodo = debounce((title: string) => {
-    // TODO: add mutation.createtTodo
-    console.log(title);
-  }, 100);
+  // TODO: add mutation.createtTodo
+  const createtTodo = debounce(console.log, 100);
 
   const onSubmit: TodoInputProps['onSubmit'] = (event) => {
     event.preventDefault();

@@ -14,8 +14,8 @@ export default {
   updateTodo: async ({ id, title, completed }: UpdateTodoParameters): Promise<Todo> => {
     const data: Omit<UpdateTodoParameters, 'id'> = {};
 
-    if (title) data.title = title;
-    if (completed) data.completed = completed;
+    if (typeof title === 'string') data.title = title;
+    if (typeof completed === 'boolean') data.completed = completed;
 
     const response = await instance.patch(`/api/todo/${id}`, data);
     return response.data;

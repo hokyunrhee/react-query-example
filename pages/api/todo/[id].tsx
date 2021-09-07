@@ -39,8 +39,8 @@ const handlePATCH = async (todoId: number, req: NextApiRequest, res: NextApiResp
 
   const data: Partial<Todo> = {};
 
-  if (title) data.title = title;
-  if (completed) data.completed = completed;
+  if (typeof title === 'string') data.title = title;
+  if (typeof completed === 'boolean') data.completed = completed;
 
   const result = await prisma.todo.update({
     where: { id: todoId },

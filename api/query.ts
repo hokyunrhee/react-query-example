@@ -12,8 +12,8 @@ export default {
   getFilteredTodos: async ({ id, completed }: GetFilteredTodosParameters): Promise<Todos> => {
     const params: GetFilteredTodosParameters = {};
 
-    if (id) params.id = id;
-    if (completed) params.completed = completed;
+    if (typeof id === 'number') params.id = id;
+    if (typeof completed === 'boolean') params.completed = completed;
 
     const { data } = await instance.get(`/api/todo`, {
       params,

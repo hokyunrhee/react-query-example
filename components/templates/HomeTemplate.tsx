@@ -4,15 +4,19 @@ import { Box } from '@chakra-ui/react';
 interface HomeTemplateProps {
   header: JSX.Element;
   todoInput: JSX.Element;
+  todosStatus: JSX.Element;
   todos: JSX.Element;
 }
 
-const HomeTemplate = ({ header, todoInput, todos }: HomeTemplateProps) => {
+const HomeTemplate = ({ header, todoInput, todosStatus, todos }: HomeTemplateProps) => {
   return (
     <AppLayout>
       {header}
-      <Box m="36px">{todoInput}</Box>
-      <Box mx="36px">{todos}</Box>
+      <Box m="36px">
+        <Box>{todoInput}</Box>
+        <Box my="36px">{todosStatus}</Box>
+        <Box>{todos}</Box>
+      </Box>
     </AppLayout>
   );
 };

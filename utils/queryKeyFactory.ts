@@ -1,1 +1,7 @@
-// https://tkdodo.eu/blog/effective-react-query-keys
+import { GetFilteredTodosParameter } from 'api/query';
+
+export const todoKeys = {
+  all: ['todos'] as const,
+  lists: () => [...todoKeys.all, 'list'] as const,
+  list: (filter: GetFilteredTodosParameter) => [...todoKeys.lists(), filter] as const,
+};

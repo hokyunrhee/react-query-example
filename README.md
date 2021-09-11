@@ -6,7 +6,7 @@ react query를 이용하여 server state를 다루는 방법에 대한 예제입
 
 완성된 예제와 간단한 설명은 example 브랜치에서 확인할 수 있습니다.
 
-# running Locally
+## running Locally
 
 ```
 $ git clone https://github.com/hokyunrhee/react-query-example.git
@@ -15,7 +15,7 @@ $ yarn
 $ yarn dev
 ```
 
-# routes
+## routes
 
 ```
 GET /todo
@@ -26,11 +26,11 @@ PATCH /todo/1
 DELETE /todo/1
 ```
 
-# schema
+## schema
 
 `prisma/schema.prisma`에서 확인할 수 있습니다.
 
-# built using
+## built using
 
 - [Next.js](https://nextjs.org/)
 - [Prisma](https://www.prisma.io/)

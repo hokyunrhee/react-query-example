@@ -2,7 +2,6 @@ import { useMutation, useQueryClient } from 'react-query';
 import mutation from 'api/mutation';
 import { todoKeys } from 'utils/queryKeyFactory';
 import { TodoProps } from 'components/molecules/Todo';
-import { m } from 'framer-motion';
 
 export default function useCreateTodo() {
   const queryClient = useQueryClient();

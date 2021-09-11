@@ -1,12 +1,8 @@
-import { TodosStatus } from './TodosStatus';
+import { TodosStatus, TodosStatusProps } from './TodosStatus';
 
-import debounce from 'lodash.debounce';
+export type TodosStatusContainerProps = Pick<TodosStatusProps, 'filterTodos'>;
 
-import query from 'api/query';
-
-export const TodosStatusContainer = () => {
-  // TODO: add mutation.updateTodo
-  const filterTodos = debounce(console.log, 100);
-
+export const TodosStatusContainer = ({ filterTodos }: TodosStatusContainerProps) => {
+  // DONE: refactor component structure. filterTodos is now passed from parent.
   return <TodosStatus filterTodos={filterTodos} />;
 };

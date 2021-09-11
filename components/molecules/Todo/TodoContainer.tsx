@@ -2,16 +2,19 @@ import { Todo, TodoProps } from './Todo';
 
 import debounce from 'lodash.debounce';
 
-import mutation from 'api/mutation';
+import useUpdateTodo from './useUpdateTodo';
+import useDeleteTodo from './useDeleteTodo';
 
 export type TodoContainerProps = Pick<TodoProps, 'id' | 'title' | 'completed'>;
 
 export const TodoContainer = (props: TodoContainerProps) => {
-  // TODO: add mutation.updateTodo
-  const updateTodo = debounce(console.log, 100);
+  // DONE: add mutation.updateTodo
+  const { mutate } = useUpdateTodo();
+  const updateTodo = debounce(mutate, 100);
 
-  // TODO: add mutation.deleteTodo
-  const deleteTodo = debounce(console.log, 100);
+  // DONE: add mutation.deleteTodo
+  const { mutate: mutate_ } = useDeleteTodo();
+  const deleteTodo = debounce(mutate_, 100);
 
   return <Todo {...props} updateTodo={updateTodo} deleteTodo={deleteTodo} />;
 };

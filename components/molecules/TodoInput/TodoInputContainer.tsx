@@ -2,11 +2,12 @@ import { TodoInput, TodoInputProps } from './TodoInput';
 
 import debounce from 'lodash.debounce';
 
-import mutation from 'api/mutation';
+import useCreateTodo from './useCreateTodo';
 
 export const TodoInputContainer = () => {
-  // TODO: add mutation.createtTodo
-  const createtTodo = debounce(console.log, 100);
+  // DONE: add mutation.createtTodo
+  const { mutate } = useCreateTodo();
+  const createtTodo = debounce(mutate, 100);
 
   const onSubmit: TodoInputProps['onSubmit'] = (event) => {
     event.preventDefault();

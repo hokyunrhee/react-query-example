@@ -11,7 +11,7 @@ export interface TodosStatusProps {
 export const TodosStatus = ({ filterTodos }: TodosStatusProps) => {
   return (
     <HStack>
-      <Button width="100%" onClick={filterTodos}>
+      <Button width="100%" onClick={() => filterTodos({})}>
         all
       </Button>
       <Button width="100%" onClick={() => filterTodos({ completed: false })}>

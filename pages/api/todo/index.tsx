@@ -24,8 +24,8 @@ const handleGET = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const options: { where?: { id?: number; completed?: boolean } } = {};
 
-  if (typeof id === 'number') options.where = { id: Number(id) };
-  if (typeof completed === 'boolean') options.where = { completed: Boolean(completed) };
+  if (typeof id === 'string') options.where = { id: Number(id) };
+  if (typeof completed === 'string') options.where = { completed: completed === 'true' };
 
   const todos = await prisma.todo.findMany(options);
 

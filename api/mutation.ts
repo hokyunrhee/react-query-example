@@ -2,7 +2,7 @@ import { instance } from './config';
 
 import { Todo } from './types';
 
-type UpdateTodoParameters = Pick<Todo, 'id'> & Partial<Omit<Todo, 'id'>>;
+export type UpdateTodoParameters = Pick<Todo, 'id'> & Partial<Omit<Todo, 'id'>>;
 
 export default {
   createtTodo: async (title: string): Promise<Todo> => {

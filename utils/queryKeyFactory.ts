@@ -1,1 +1,1 @@
-// https://tkdodo.eu/blog/effective-react-query-keys
+export const todoKeys = {};

@@ -8,11 +8,11 @@ export default function useUpdateTodo() {
 
   return useMutation(mutation.updateTodo, {
     onMutate: async (parameters) => {
-      await queryClient.cancelQueries(todoKeys.all);
+      await queryClient.cancelQueries(todoKeys.list({}));
 
-      const snapShot = queryClient.getQueryData(todoKeys.all);
+      const snapShot = queryClient.getQueryData(todoKeys.list({}));
 
-      queryClient.setQueryData(todoKeys.all, (old) => {
+      queryClient.setQueryData(todoKeys.list({}), (old) => {
         return (old as TodoProps[]).map((item) => {
           if (item.id === parameters.id) return { item, ...parameters };
           return item;
@@ -22,10 +22,10 @@ export default function useUpdateTodo() {
       return snapShot;
     },
     onError: (_error, _variables, snapShot) => {
-      queryClient.setQueryData(todoKeys.all, snapShot);
+      queryClient.setQueryData(todoKeys.list({}), snapShot);
     },
     onSettled: () => {
-      queryClient.invalidateQueries(todoKeys.all);
+      queryClient.invalidateQueries(todoKeys.list({}));
     },
   });
 }

@@ -8,21 +8,21 @@ export default function useCreateTodo() {
 
   return useMutation(mutation.createtTodo, {
     onMutate: async (title) => {
-      await queryClient.cancelQueries(todoKeys.all);
+      await queryClient.cancelQueries(todoKeys.list({}));
 
-      const snapShot = queryClient.getQueryData(todoKeys.all);
+      const snapShot = queryClient.getQueryData(todoKeys.list({}));
 
-      queryClient.setQueryData(todoKeys.all, (old) => {
+      queryClient.setQueryData(todoKeys.list({}), (old) => {
         return [...(old as TodoProps[]), { id: new Date().toISOString(), title, completed: false }];
       });
 
       return snapShot;
     },
     onError: (_error, _variables, snapShot) => {
-      queryClient.setQueryData(todoKeys.all, snapShot);
+      queryClient.setQueryData(todoKeys.list({}), snapShot);
     },
     onSettled: () => {
-      queryClient.invalidateQueries(todoKeys.all);
+      queryClient.invalidateQueries(todoKeys.list({}));
     },
   });
 }
